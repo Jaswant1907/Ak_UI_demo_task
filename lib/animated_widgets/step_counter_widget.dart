@@ -11,18 +11,19 @@ class StepCounterWidget extends StatefulWidget {
   final int currentSteps;
   final Color progressColor;
   final Color backgroundColor;
-  final bool? showIcon; // New property
+  final bool? showIcon;
+   // New property
   final bool? showDashedCircle; // New property
 
   const StepCounterWidget({
-    Key? key,
+    super.key,
     required this.totalSteps,
     required this.currentSteps,
     this.progressColor = Colors.orange,
     this.backgroundColor = Colors.grey,
     required this.showIcon , // Default to true
     required this.showDashedCircle, // Default to true
-  }) : super(key: key);
+  });
 
   @override
   State<StepCounterWidget> createState() => _StepCounterWidgetState();
@@ -33,7 +34,7 @@ class _StepCounterWidgetState extends State<StepCounterWidget> {
   Widget build(BuildContext context) {
     double progress = (widget.currentSteps / widget.totalSteps).clamp(0.0, 1.0);
 
-    return Container(
+    return SizedBox(
       width: 200, // Adjust size as needed
       height: 200, // Adjust size as needed
       child: Stack(
@@ -75,10 +76,10 @@ class _StepCounterWidgetState extends State<StepCounterWidget> {
             children: [
               // Walking Icon - Now conditional
               if (widget.showIcon == true)
-                Container(
+                SizedBox(
                   height: 50,
-                  child: SvgPicture.asset('assets/images/Vector1.svg'),
                   width: 50,
+                  child: SvgPicture.asset('assets/images/Vector1.svg'),
                 ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

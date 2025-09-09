@@ -7,11 +7,11 @@ class TodaysProgressWidget extends StatelessWidget {
   final String badgeText;
   
   const TodaysProgressWidget({
-    Key? key,
+    super.key,
     required this.progress,
     required this.milesLeft,
     required this.badgeText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class TodaysProgressWidget extends StatelessWidget {
   }
 
   Widget _buildWalkingProgressBar() {
-    return Container(
+    return SizedBox(
       height: 30,
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
